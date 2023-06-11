@@ -5,10 +5,15 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./dataAnalysis/macro
-
     steps:
     - uses: actions/checkout@v2
-    - name: 폴더 테스트!
+    - name: 파이썬 실행!!
+      run: python test.py
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run main.py
+      working-directory: dataAnalysis/macro
       run: python main.py
