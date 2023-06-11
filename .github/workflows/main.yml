@@ -5,10 +5,15 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Run main.py
+    - name: Run main.py in macro folder
       working-directory: dataAnalysis/macro
+      run: python main.py
+
+    - name: Run main.py in notebook folder
+      working-directory: dataAnalysis/notebook
       run: python main.py
